@@ -37,6 +37,25 @@ var TaskList = Backbone.Model.extend({
 });
 
 /***
+  * Collection of TaskList models.
+  */
+var TaskLists = Backbone.Collection.extend({
+  // Tells Backbone what model each item should be.
+  modle: TaskList,
+  // API URL to act on TaskLists. Currently hardcoded to GET lists from server.
+  url: function() {
+    return 'https://www.googleapis.com/tasks/v1/users/@me/lists?access_token=' + this.get('access_token');
+  },
+  initialize: function() {
+    console.log('TaskLists:Initialize');
+  },
+  // Takes the server response and modifies it so the array of TaskLists will be set as models.
+  parse: function(response) {
+    return response.items;
+  }
+});
+
+/***
   * Attach authentication headers to API requests.
   */
 function attacheAuthHeader(xhr, settings) {
