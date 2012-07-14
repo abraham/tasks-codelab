@@ -25,6 +25,18 @@ var Account = Backbone.Model.extend({
 });
 
 /***
+  * Stores details for a single TaskList. Currently not used mutch.
+  */
+var TaskList = Backbone.Model.extend({
+  // url: function() {
+  //   return 'https://www.googleapis.com/plus/v1/people/me?access_token=' + this.get('access_token');
+  // },
+  initialize: function() {
+    console.log('TaskList:Initialize');
+  }
+});
+
+/***
   * Attach authentication headers to API requests.
   */
 function attacheAuthHeader(xhr, settings) {
