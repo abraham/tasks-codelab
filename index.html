@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src='/js/config.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
     <script src='/js/underscore-min.js'></script>
     <script src='/js/backbone-min.js'></script>
+    <script src='/js/app.js'></script>
+    <script type="text/javascript">
+     (function() {
+       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+       po.src = 'https://apis.google.com/js/plusone.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+     })();
+    </script>
+    <script type="text/javascript">
+      (function ($) {
+        window.account = new Account;
+        window.tasklists = new TaskLists;
+      })(jQuery);
+  </script>
     <link rel='stylesheet' href='/css/bootstrap.min.css'>
   </head>
   <body>
-    
+    <g:plus action="connect" clientid="732848538856.apps.googleusercontent.com" callback="authCallback" scope="https://www.googleapis.com/auth/tasks"></g:plus>
   </body>
 </html>
