@@ -1,0 +1,1 @@
+var googleClientId = 'SET ClientID from https://code.google.com/apis/console/';
